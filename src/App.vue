@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <UsersList :users="users" :modes="modes"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UsersList from './components/UsersList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    UsersList
+  },
+  data () {
+    return (
+      {
+        users: [
+          {name: "AIT-SSI Mouslim", picture: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg", userId: 1, modeId: 1},
+          {name: "AIT-SSI Salman", picture: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg", userId: 2, modeId: 1},
+          {name: "AIT-SSI Amine", picture: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg", userId: 3, modeId: 1}
+        ],
+        modes: [
+          {modeId: 1, value: "Présent", cssClass: "present"},
+          {modeId: 2, value: "Absent", cssClass: "absent"},
+        ]
+      }
+    )
   }
 }
 </script>
